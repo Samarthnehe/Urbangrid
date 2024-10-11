@@ -3,10 +3,15 @@ import { Hero } from "./components/hero/Hero";
 import { Navbar } from "./components/navbar/Navbar";
 
 import Head from "next/head";
+import { ExploreWorkspaces } from "./components/workspaces/ExploreWorkspaces";
+import { Talk } from "./components/talk/Talk";
+import { Features } from "./components/features/Features";
+import Values from "./components/values/Values";
+import { About } from "./components/about/About";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Head>
         <title>Urbangrid</title>
         <meta
@@ -26,6 +31,16 @@ export default function HomePage() {
 
       {/* hero section */}
       <Hero />
+
+      <About />
+
+      <Values />
+
+      <ExploreWorkspaces />
+
+      <Features />
+
+      <Talk />
 
       {/* about section */}
 

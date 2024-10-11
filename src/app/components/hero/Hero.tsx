@@ -1,6 +1,9 @@
 import React from "react";
 
 import Image from "next/image";
+import Vector1 from "../../assets/feature-vector-1.png";
+import Vector2 from "../../assets/feature-vector-2.png";
+import LandingImage from "../../assets/landing.png";
 
 import { Button } from "../ui/button";
 
@@ -8,74 +11,59 @@ import { heroData } from "../../data/hero";
 
 export const Hero = () => {
   return (
-    <div
-      className="h-[65vh] w-[100vw] flex items-center justify-center relative md:h-[75vh]"
-      style={{
-        background: `url(${heroData.backgroundImage}) no-repeat fixed`,
-        backgroundSize: `cover`,
-      }}
-    >
-      <div className="bg-[rgba(172,237,164,0.8)] absolute top-0 left-0 w-full h-full flex items-center justify-center">
-        <div className="container mx-[10%] mt-[10vh] bg-white h-[55vh] w-[100%] flex justify-between items-center px-[5%] py-[5%] space-x-10 shadow-lg md:[py-[10%] h-[50vh]]">
-          <div className="flex-1 space-y-4">
-            <div className="space-y-3">
-              <h1 className="text-4xl text-black font-semibold md:text-5xl">
-                {heroData.header.first}{" "}
-                <span className="text-4xl text-green-700 font-semibold md:text-5xl">
-                  {heroData.header.second}
-                </span>
-              </h1>
-              <p className="text-sm text-[#4A4A4A] font-regular md:text-base">
-                {heroData.subTitle}
-              </p>
-            </div>
-            <div className="flex space-x-3 items-center md:space-x-7">
-              {heroData.stats.map((item, index) => {
-                return (
-                  <>
-                    <div className="flex-col items-center justify-center space-y-1">
-                      <h1 className="font-semibold text-base text-center md:text-xl">
-                        {item.count}
-                      </h1>
-                      <p className="text-[#4A4A4A] font-light text-xs text-center md:text-sm">
-                        {item.label}
-                      </p>
-                    </div>
-                    {index < heroData.stats.length - 1 && (
-                      <div className="h-10 w-[1px] bg-gray-500" />
-                    )}
-                  </>
-                );
-              })}
-            </div>
-            <div className="flex items-center space-x-5">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-[1px] border-[#D8D8D8] hover:bg-[#aceda4]"
-              >
-                Explore Workspace
-              </Button>
-              <Button
-                variant="default"
-                size="lg"
-                className="bg-green-700 hover:bg-green-900"
-              >
-                Enquire
-              </Button>
-            </div>
+    <div className="h-[90vh] w-[100vw] flex items-center justify-center relative md:h-[85vh]">
+      <Image
+        style={{ objectFit: "cover", overflow: "hidden" }}
+        height={400}
+        width={400}
+        alt="bannerImage-1"
+        loading="eager"
+        src={Vector1.src}
+        className="absolute -top-[500px] -left-[0px]"
+      />
+      <Image
+        style={{ objectFit: "cover", overflow: "hidden" }}
+        height={300}
+        width={300}
+        alt="bannerImage-2"
+        loading="eager"
+        src={Vector2.src}
+        className="absolute -bottom-[300px] -right-[50px] scale-[0.7]"
+      />
+      <div className="container mr-[5%] ml-[5%] md:ml-[10%] w-[100%] flex flex-col-reverse md:flex-row justify-between items-center space-y-8 md:space-y-10 md:space-x-8 md:[py-[10%] h-[50vh]]">
+        <div className="flex-1 space-y-10">
+          <div className="space-y-6 md:space-y-4">
+            <h1 className="text-sm text-[#E55812] font-medium md:text-lg">
+              {heroData.termsAndConditions}
+            </h1>
+            <h1 className="text-4xl text-black font-base md:text-6xl md:leading-tight">
+              {heroData.header}
+            </h1>
+            <p className="text-sm text-[#4A4A4A] font-regular md:text-sm">
+              {heroData.subTitle}
+            </p>
           </div>
-          <div className="flex-1 hidden lg:block">
-            <div className="w-[100%] h-[35vh] relative flex items-center justify-center bg-[#CBCBCB] overflow-hidden">
-              <Image
-                style={{ objectFit: "cover", overflow: "hidden" }}
-                fill
-                alt="bannerImage-1"
-                loading="eager"
-                className=" overflow-hidden hover:scale-110 transition-transform duration-500 ease-in-out"
-                src={heroData.homepageImage}
-              />
-            </div>
+          <div className="flex space-x-3 items-center mt-10 md:space-x-7 ">
+            <Button
+              variant="default"
+              size="lg"
+              className="bg-[#16AE7E] hover:bg-green-900 rounded-[8px] text-sm text-white w-[30%]"
+            >
+              Book a tour
+            </Button>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="w-[100%] mb-10 -mt-4 md:mb-0 mb:mt-0 relative flex items-center justify-end overflow-hidden">
+            <Image
+              style={{ objectFit: "cover", overflow: "hidden" }}
+              height={600}
+              width={600}
+              alt="bannerImage-1"
+              loading="eager"
+              className="scale-[1.2] md:scale-[1]"
+              src={LandingImage.src}
+            />
           </div>
         </div>
       </div>
